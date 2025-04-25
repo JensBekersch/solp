@@ -47,8 +47,8 @@ jobs:
         python generate_testdoc.py
         python generate_readme.py
 
-    - name: ☁️ Upload README.md as artifact (optional)
-      uses: actions/upload-artifact@v2
+    - name: ☁️ Upload README.md as artifact
+      uses: actions/upload-artifact@v3.1.3
       with:
         name: generated-docs
         path: |
