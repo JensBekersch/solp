@@ -3,6 +3,7 @@
 # analysis of Solidity smart contracts. Designed for extensibility,
 # transparency, and full testability.
 from parser.parser import Parser
+
 from lexer.lexer import Lexer
 
 
