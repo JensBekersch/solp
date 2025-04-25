@@ -45,7 +45,7 @@ def write_testdoc(sections_by_file, output_file="TESTDOC.md"):
 
 
 if __name__ == "__main__":
-    base_dir = "test"
+    base_dir = "tests"
     sections = extract_testdoc_sections(base_dir)
     write_testdoc(sections)
     print("✅ TESTDOC.md wurde generiert mit Dateinamen als Überschriften.")
