@@ -1,0 +1,13 @@
+[project]
+name = "solidity-parser-lib"
+version = "0.1.0"
+description = "Lexer/Parser/AST framework for Solidity in Python"
+authors = [{ name = "Jens Bekersch" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
