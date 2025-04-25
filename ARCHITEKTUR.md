@@ -26,20 +26,6 @@ Each Token includes:
 
 ---
 
-## 5.3.1 Token Stream
-
-The TokenStream wraps a flat list of tokens and provides controlled,
-lookahead-based navigation for parser rules. It ensures safe access to
-tokens using a cursor-based API.
-
-Responsibilities:
-- Provide peekable access to the current and upcoming tokens
-- Offer utility functions for advancing and consuming tokens
-- Centralize matching and error reporting for expected patterns
-- Prevent out-of-bounds access by returning None safely
-
----
-
 ## 5.3.1 Main Parser
 
 The Parser coordinates the parsing process using a recursive descent
@@ -54,6 +40,20 @@ Responsibilities:
 This parser does not implement parsing logic itself.
 All grammar rules are modularized in dedicated rule classes
 (ContractRule, FunctionRule, etc.)
+
+---
+
+## 5.3.1 Token Stream
+
+The TokenStream wraps a flat list of tokens and provides controlled,
+lookahead-based navigation for parser rules. It ensures safe access to
+tokens using a cursor-based API.
+
+Responsibilities:
+- Provide peekable access to the current and upcoming tokens
+- Offer utility functions for advancing and consuming tokens
+- Centralize matching and error reporting for expected patterns
+- Prevent out-of-bounds access by returning None safely
 
 ---
 
