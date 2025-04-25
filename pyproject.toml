@@ -11,3 +11,27 @@ dependencies = []
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+branch = true
+source = ["solp"]
+
+[tool.coverage.report]
+show_missing = true
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "coverage",
+  "flake8",
+  "black",
+  "isort",
+  "radon",
+]
