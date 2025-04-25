@@ -24,7 +24,13 @@ profile = "black"
 
 [tool.coverage.run]
 branch = true
-source = ["solp"]
+source = [
+    "solp",
+    "lexer",
+    "parser",
+    "solidity_ast",
+    "token_stream"
+]
 
 [tool.coverage.report]
 show_missing = true

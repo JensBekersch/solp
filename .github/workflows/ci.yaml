@@ -47,11 +47,12 @@ jobs:
         python generate_testdoc.py
         python generate_readme.py
 
-    - name: ☁️ Upload README.md as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: generated-docs
-        path: |
-          README.md
-          ARCHITEKTUR.md
-          TESTDOC.md
+    - name: 📄 Commit and push generated docs
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md ARCHITEKTUR.md TESTDOC.md
+        git commit -m "Auto-update documentation"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
