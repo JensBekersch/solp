@@ -42,7 +42,8 @@ def write_readme(sections, output_file="README.md"):
 
 
 if __name__ == "__main__":
-    base_dir = "."
-    sections = extract_readme_sections(base_dir)
+    base_path = os.path.abspath(os.path.dirname(__file__))
+    start_dir = os.path.join(base_path, "..", "solp")
+    sections = extract_readme_sections(start_dir)
     write_readme(sections)
     print("✅ README.md wurde generiert.")

@@ -2,10 +2,11 @@ import os
 import re
 from collections import defaultdict
 
-def extract_testdoc_sections(base_dir):
-    testdoc_map = defaultdict(list)  # filename => [(title, [lines])]
 
-    for root, _, files in os.walk(base_dir):
+def extract_testdoc_sections(test_dir):
+    testdoc_map = defaultdict(list)
+
+    for root, _, files in os.walk(test_dir):
         for file in files:
             if file.endswith(".py"):
                 filepath = os.path.join(root, file)
@@ -15,12 +16,14 @@ def extract_testdoc_sections(base_dir):
                 i = 0
                 while i < len(lines):
                     line = lines[i]
-                    match = re.match(r"#\s*testdoc:\s+(.*)", line)
+                    match = re.match(r"\s*#\s*testdoc:\s+(.*)", line)
                     if match:
                         title = match.group(1).strip()
                         content_lines = []
                         i += 1
-                        while i < len(lines) and lines[i].lstrip().startswith("#") and not re.match(r"#\s*testdoc:", lines[i]):
+                        while i < len(lines) and lines[i].lstrip().startswith(
+                                "#") and not re.match(r"\s*#\s*testdoc:",
+                                                      lines[i]):
                             content_lines.append(lines[i].lstrip("#").strip())
                             i += 1
                         testdoc_map[file].append((title, content_lines))
@@ -45,7 +48,8 @@ def write_testdoc(sections_by_file, output_file="TESTDOC.md"):
 
 
 if __name__ == "__main__":
-    base_dir = "tests"
-    sections = extract_testdoc_sections(base_dir)
+    base_path = os.path.abspath(os.path.dirname(__file__))
+    test_dir = os.path.join(base_path, "..", "tests")
+    sections = extract_testdoc_sections(test_dir)
     write_testdoc(sections)
     print("✅ TESTDOC.md wurde generiert mit Dateinamen als Überschriften.")

@@ -14,6 +14,27 @@ Each test focuses on one method from ContractRule (header parsing,
 member loop, etc.). Token stream and dispatcher are mocked or simplified
 as needed.
 
+### Verifies contract header parsing
+
+
+### Verifies function member is correctly delegated to dispatcher
+
+
+### Verifies variable declaration is delegated to dispatcher
+
+
+### If member is valid, it is returned unchanged
+
+
+### If member parsing fails, token stream is advanced and None is returned
+
+
+### Should collect multiple members until closing brace
+
+
+### Integration of header + body parsing into ContractNode
+
+
 
 ---
 
@@ -32,6 +53,22 @@ Covers:
 - Modifier (visibility/payable) parsing
 - Return type parsing
 - Full parse integration
+
+### Should extract function name correctly after 'function' keyword
+
+
+### Should extract parameter list into VariableNode objects
+
+
+### Should detect visibility and payable modifiers correctly
+
+
+### Should parse unnamed return types inside 'returns(...)'
+
+
+### Should integrate header, parameters, modifiers,
+
+# returns, and body
 
 
 ---
@@ -209,6 +246,10 @@ or other function calls that are used as standalone statements.
 Focuses on function call expressions inside function bodies, specifically
 those wrapped in a StatementNode of type "expression".
 
+### Parses `require(x > 0);` as an expression statement
+
+# with a CallNode
+
 
 ---
 
@@ -280,6 +321,26 @@ Solidity statements.
 Includes return, assignment, expressions, require, revert, assert, emit,
 control flow (if, while, for), and loop modifiers (break, continue).
 
+### Parses 'break;' into a StatementNode("break")
+
+
+### Parses 'continue;' into a StatementNode("continue")
+
+
+### Parses 'emit Transfer(a, b);' into a
+
+# StatementNode("emit", event="Transfer", ...)
+
+### Parses 'require(x > 0);' into StatementNode("require", ...)
+
+
+### Parses 'assert(y);' into StatementNode("assert", ...)
+
+
+### Parses 'revert("Error");' into
+
+# StatementNode("revert", arguments=[...])
+
 
 ---
 
@@ -317,6 +378,12 @@ by VariableRule.
 ### Scope
 
 This includes type, optional visibility, and name extraction.
+
+### Should parse a variable without visibility modifier
+
+
+### Should parse a variable with visibility modifier
+
 
 
 ---
