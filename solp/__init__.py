@@ -1,1 +1,3 @@
-from .solidity_paser import parse_contract
+from .solidity_parser import parse_contract
+
+__all__ = ["parse_contract"]
