@@ -48,7 +48,6 @@ jobs:
     - name: 📄 Generate and Commit Docs
       if: github.event_name == 'workflow_dispatch'
       run: |
-        rm -f README.md ARCHITEKTUR.md TESTDOC.md
         python generate_architecture_doc.py
         python generate_testdoc.py
         python generate_readme.py
