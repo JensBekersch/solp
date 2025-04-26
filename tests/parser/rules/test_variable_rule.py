@@ -4,9 +4,9 @@
 
 # testdoc: Scope
 # This includes type, optional visibility, and name extraction.
-from parser.rules.variable import VariableRule
-from solidity_ast.nodes import VariableNode
-from lexer.token_types import KEYWORD, IDENTIFIER, SYMBOL, SYM_SEMICOLON
+from solp.parser.rules.variable import VariableRule
+from solp.solidity_ast.nodes import VariableNode
+from solp.lexer.token_types import KEYWORD, IDENTIFIER, SYMBOL, SYM_SEMICOLON
 
 
 class MockToken:

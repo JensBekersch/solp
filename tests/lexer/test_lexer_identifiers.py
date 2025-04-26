@@ -13,7 +13,7 @@
 # testdoc: Scope Limit
 # This test does not check for reserved keywords or parser behavior.
 import pytest
-from lexer.lexer import Lexer
+from solp.lexer.lexer import Lexer
 
 IDENTIFIERS = [
     "x", "x1", "_x", "myVar", "CamelCase", "_under_score", "with123Numbers"

@@ -15,8 +15,8 @@
 # This test does not validate position tracking (line/col) or Token class
 # internals.
 import pytest
-from lexer.lexer import Lexer
-from lexer.definitions.symbols import SYMBOLS
+from solp.lexer.lexer import Lexer
+from solp.lexer.definitions.symbols import SYMBOLS
 
 
 def lex(code):

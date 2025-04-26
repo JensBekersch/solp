@@ -6,9 +6,9 @@
 # Focuses on function call expressions inside function bodies, specifically
 # those wrapped in a StatementNode of type "expression".
 
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from solidity_ast.nodes import CallNode, StatementNode
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
+from solp.solidity_ast.nodes import CallNode, StatementNode
 
 
 def test_require_call_statement():

@@ -5,9 +5,9 @@
 # Various declarations with types and optional visibility are parsed and their
 # resulting AST nodes are validated.
 
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from solidity_ast.nodes import VariableNode
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
+from solp.solidity_ast.nodes import VariableNode
 
 
 def test_parse_variable_declarations():

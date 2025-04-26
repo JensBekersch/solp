@@ -6,8 +6,8 @@
 # - have no name or return type
 # - contain a standard statement block
 # Results in a ConstructorNode for use in ContractNode.members
-from solidity_ast.nodes import ConstructorNode, VariableNode
-from lexer.token_types import (
+from solp.solidity_ast.nodes import ConstructorNode, VariableNode
+from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL,
     KW_VISIBILITY, SYM_LPAREN, SYM_RPAREN, SYM_LBRACE, SYM_RBRACE, SYM_COMMA,
     RULE_STATEMENTS, RULE_CONSTRUCTOR,

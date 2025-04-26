@@ -1,8 +1,8 @@
 # testdoc: Purpose
 # To test parsing of basic function body statements, e.g. assignments.
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from solidity_ast.nodes import StatementNode
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
+from solp.solidity_ast.nodes import StatementNode
 
 
 def test_function_body_assignment():

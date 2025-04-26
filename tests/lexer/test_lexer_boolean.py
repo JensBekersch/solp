@@ -5,7 +5,7 @@
 # Check if these values are recognized as KEYWORD tokens with correct value.
 
 import pytest
-from lexer.lexer import Lexer
+from solp.lexer.lexer import Lexer
 
 
 @pytest.mark.parametrize("value", ["true", "false"])

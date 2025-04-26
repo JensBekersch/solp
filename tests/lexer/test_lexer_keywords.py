@@ -16,8 +16,8 @@
 # Detects typographical errors or accidental keyword renaming in the keyword
 # list.
 import pytest
-from lexer.lexer import Lexer
-from lexer.definitions.keywords import KEYWORDS
+from solp.lexer.lexer import Lexer
+from solp.lexer.definitions.keywords import KEYWORDS
 
 CONTRACT = "contract"
 INTERFACE = "interface"

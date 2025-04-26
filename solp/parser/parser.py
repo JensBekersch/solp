@@ -12,9 +12,9 @@
 # All grammar rules are modularized in dedicated rule classes
 # (ContractRule, FunctionRule, etc.)
 
-from parser.dispatcher import RuleDispatcher
-from parser.rules.contract import ContractRule
-from parser.token_stream import TokenStream
+from solp.parser.dispatcher import RuleDispatcher
+from solp.parser.rules.contract import ContractRule
+from solp.parser.token_stream import TokenStream
 
 
 class Parser:

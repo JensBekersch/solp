@@ -5,8 +5,8 @@
 # - an optional visibility modifier (public/private/internal/external)
 # - a name (identifier)
 # - a semicolon to terminate the declaration
-from solidity_ast.nodes import VariableNode
-from lexer.token_types import (
+from solp.solidity_ast.nodes import VariableNode
+from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL,
     KW_VISIBILITY, SYM_SEMICOLON,
 )

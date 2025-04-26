@@ -10,9 +10,9 @@
 # - Return type parsing
 # - Full parse integration
 
-from parser.rules.function import FunctionRule
-from solidity_ast.nodes import FunctionNode
-from lexer.token_types import (
+from solp.parser.rules.function import FunctionRule
+from solp.solidity_ast.nodes import FunctionNode
+from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL,
     KW_FUNCTION, KW_PAYABLE, KW_RETURNS,
     SYM_LPAREN, SYM_RPAREN, SYM_LBRACE, SYM_RBRACE, SYM_COMMA,

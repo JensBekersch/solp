@@ -10,11 +10,11 @@
 # - Loose coupling between parser components
 # - Easy extensibility: new rules can be added in one place
 # - Enables unit testing of each rule in isolation
-from parser.rules.constructor import ConstructorRule
-from parser.rules.function import FunctionRule
-from parser.rules.variable import VariableRule
-from parser.rules.statement import StatementRule
-from parser.rules.contract import ContractRule
+from solp.parser.rules.constructor import ConstructorRule
+from solp.parser.rules.function import FunctionRule
+from solp.parser.rules.variable import VariableRule
+from solp.parser.rules.statement import StatementRule
+from solp.parser.rules.contract import ContractRule
 
 # arc42: 5.3.2.1 Rule Name Constants
 # These constants define all supported parser rules to avoid magic strings.
@@ -23,6 +23,7 @@ RULE_FUNCTION = "function"
 RULE_VARIABLE = "variable"
 RULE_STATEMENTS = "statements"
 RULE_CONSTRUCTOR = "constructor"
+
 
 class RuleDispatcher:
     def __init__(self, token_stream):

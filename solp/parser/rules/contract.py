@@ -5,8 +5,8 @@
 # - delegation of contract members (e.g. functions, variables) to other rules
 # The contract body is iterated token by token and parsed modularly via
 # the dispatcher.
-from solidity_ast.nodes import ContractNode
-from lexer.token_types import (
+from solp.solidity_ast.nodes import ContractNode
+from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL, KW_CONTRACT,
     KW_FUNCTION, KW_TYPES, SYM_LBRACE,
     SYM_RBRACE, RULE_VARIABLE, RULE_FUNCTION, KW_CONSTRUCTOR

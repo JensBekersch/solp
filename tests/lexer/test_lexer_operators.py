@@ -16,8 +16,8 @@
 # This test intentionally avoids testing the Token class itself
 # (subtype, line, col). Those aspects are to be tested separately.
 import pytest
-from lexer.lexer import Lexer
-from lexer.definitions.operators import OPERATOR_GROUPS
+from solp.lexer.lexer import Lexer
+from solp.lexer.definitions.operators import OPERATOR_GROUPS
 
 ALL_OPERATORS = [
     (op, group)

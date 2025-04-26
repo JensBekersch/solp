@@ -8,8 +8,8 @@
 # member loop, etc.). Token stream and dispatcher are mocked or simplified
 # as needed.
 
-from parser.rules.contract import ContractRule
-from solidity_ast.nodes import ContractNode
+from solp.parser.rules.contract import ContractRule
+from solp.solidity_ast.nodes import ContractNode
 
 
 # --- Mocks ---

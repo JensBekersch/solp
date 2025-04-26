@@ -1,7 +1,7 @@
 # testdoc: Purpose
 # To test if the parser can correctly extract contract and function structures.
-from lexer.lexer import Lexer
-from parser.parser import Parser
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
 
 
 def test_parse_simple_contract():

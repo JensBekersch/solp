@@ -4,9 +4,9 @@
 # testdoc: Method
 # Validates that return statements inside a function body are parsed into
 # ReturnNode, with or without a value (e.g. `return;` vs. `return x;`).
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from solidity_ast.nodes import ReturnNode
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
+from solp.solidity_ast.nodes import ReturnNode
 
 
 def test_return_with_value():

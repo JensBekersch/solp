@@ -1,9 +1,9 @@
 # testdoc: Purpose
 # To test parsing of function parameters and return types
 # in Solidity functions.
-from lexer.lexer import Lexer
-from parser.parser import Parser
-from solidity_ast.nodes import FunctionNode
+from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
+from solp.solidity_ast.nodes import FunctionNode
 
 
 def test_function_with_arguments_and_returns():

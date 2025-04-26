@@ -6,10 +6,10 @@
 # - assignment statements (e.g. `x = 1;`, `y += 2;`)
 # - expression statements (e.g. `require(x > 0);`)
 #
-from solidity_ast.nodes import StatementNode, ReturnNode, CallNode, IfNode, \
+from solp.solidity_ast.nodes import StatementNode, ReturnNode, CallNode, IfNode, \
     WhileNode, ForNode
-from utils.errors import INVALID_EXPRESSION_START, EXPECTED_AFTER_DOT
-from lexer.token_types import (
+from solp.utils.errors import INVALID_EXPRESSION_START, EXPECTED_AFTER_DOT
+from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL, OPERATOR,
     KW_RETURN, SYM_SEMICOLON, SYM_LBRACE, SYM_RBRACE, RULE_ASSIGNMENT,
     RULE_EXPRESSION, RULE_REQUIRE, SYM_LPAREN, SYM_RPAREN, SYM_COMMA, SYM_DOT,

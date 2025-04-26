@@ -37,10 +37,10 @@
 # For example, each keyword has a dedicated test to ensure recognition.
 # Tests also document edge cases and serve as regression guards for future
 # updates to Solidity.
-from .token import Token
-from lexer.definitions.keywords import KEYWORDS
-from lexer.definitions.operators import OPERATOR_GROUPS
-from lexer.definitions.symbols import SYMBOLS
+from solp.lexer.token import Token
+from solp.lexer.definitions.keywords import KEYWORDS
+from solp.lexer.definitions.operators import OPERATOR_GROUPS
+from solp.lexer.definitions.symbols import SYMBOLS
 
 KEYWORDS = set(KEYWORDS)
 

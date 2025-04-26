@@ -5,12 +5,12 @@
 # testdoc: Scope
 # Includes return, assignment, expressions, require, revert, assert, emit,
 # control flow (if, while, for), and loop modifiers (break, continue).
-from parser.rules.statement import StatementRule
-from lexer.token_types import KEYWORD, IDENTIFIER, OPERATOR, SYMBOL
+from solp.parser.rules.statement import StatementRule
+from solp.lexer.token_types import KEYWORD, IDENTIFIER, SYMBOL
 
 
 # --- Mocks ---
-from solidity_ast.nodes import CallNode
+from solp.solidity_ast.nodes import CallNode
 
 
 class Token:

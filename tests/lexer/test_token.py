@@ -12,7 +12,7 @@
 
 # testdoc: Scope Limit
 # This test does not depend on lexer logic or actual tokenization behavior.
-from lexer.token import Token
+from solp.lexer.token import Token
 
 
 def test_token_init_minimal():
