@@ -45,8 +45,7 @@ from solp.lexer.definitions.symbols import SYMBOLS
 KEYWORDS = set(KEYWORDS)
 
 OPERATORS = sorted(
-    {op for group in OPERATOR_GROUPS.values() for op in group},
-    key=len, reverse=True
+    {op for group in OPERATOR_GROUPS.values() for op in group}, key=len, reverse=True
 )
 
 
@@ -93,15 +92,14 @@ class Lexer:
             elif self._match_operator():
                 op = self._consume_operator()
                 group = get_operator_group(op)
-                tokens.append(Token(
-                    "OPERATOR", op, self.line, self.col, group
-                ))
+                tokens.append(Token("OPERATOR", op, self.line, self.col, group))
             elif current in ('"', "'"):
                 tokens.append(self._consume_string())
             else:
                 raise Exception(
                     f"Unexpected character '{current}' "
-                    f"at line {self.line}, col {self.col}")
+                    f"at line {self.line}, col {self.col}"
+                )
         return tokens
 
     def _advance(self, amount=1):
@@ -120,22 +118,21 @@ class Lexer:
         # arc42: 5.2.4 Lookahead – _peek()
         # Returns the next character (without advancing). Used for comment
         # detection and operator matching.
-        return self.code[self.position + 1] if self.position + 1 < len(
-            self.code) else ""
+        return (
+            self.code[self.position + 1] if self.position + 1 < len(self.code) else ""
+        )
 
     def _consume_whitespace(self):
         # arc42: 5.2.5 Whitespace Skipping
         # Advances past whitespace characters. No tokens are generated for
         # whitespace.
-        while self.position < len(self.code) and self.code[self.position] \
-                .isspace():
+        while self.position < len(self.code) and self.code[self.position].isspace():
             self._advance()
 
     def _consume_line_comment(self):
         # arc42: 5.2.6 Line Comments
         # Skips everything until newline. Used for // comments.
-        while self.position < \
-                len(self.code) and self.code[self.position] != "\n":
+        while self.position < len(self.code) and self.code[self.position] != "\n":
             self._advance()
 
     def _consume_block_comment(self):
@@ -153,10 +150,10 @@ class Lexer:
         # non-alphanumeric character is found.
         start = self.position
         while self.position < len(self.code) and (
-                self.code[self.position].isalnum() or
-                self.code[self.position] == "_"):
+            self.code[self.position].isalnum() or self.code[self.position] == "_"
+        ):
             self._advance()
-        value = self.code[start:self.position]
+        value = self.code[start : self.position]
         type_ = "KEYWORD" if value in KEYWORDS else "IDENTIFIER"
         return Token(type_, value, self.line, self.col)
 
@@ -164,10 +161,9 @@ class Lexer:
         # arc42: 5.2.9 Numeric Literals
         # Parses integer literals (decimal only for now).
         start = self.position
-        while self.position < len(self.code) and self.code[self.position] \
-                .isdigit():
+        while self.position < len(self.code) and self.code[self.position].isdigit():
             self._advance()
-        value = self.code[start:self.position]
+        value = self.code[start : self.position]
         return Token("NUMBER", value, self.line, self.col)
 
     def _match_operator(self):
@@ -195,8 +191,7 @@ class Lexer:
         self._advance()
 
         value = ""
-        while self.position < len(self.code) and self.code[self.position] != \
-                quote_char:
+        while self.position < len(self.code) and self.code[self.position] != quote_char:
             if self.code[self.position] == "\\" and self._peek() == quote_char:
                 value += quote_char
                 self._advance(2)
@@ -206,8 +201,8 @@ class Lexer:
 
         if self.position >= len(self.code):
             raise Exception(
-                f"Unterminated string starting at line {self.line}, "
-                f"col {self.col}")
+                f"Unterminated string starting at line {self.line}, " f"col {self.col}"
+            )
 
         self._advance()
         return Token("STRING", value, self.line, self.col)

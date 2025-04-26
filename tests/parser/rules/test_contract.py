@@ -14,6 +14,7 @@ from solp.solidity_ast.nodes import ContractNode
 
 # --- Mocks ---
 
+
 class MockToken:
     def __init__(self, type_, value):
         self.type = type_
@@ -64,6 +65,7 @@ class MockDispatcher:
 
 
 # --- Tests ---
+
 
 def test_parse_contract_header():
     # testdoc: Verifies contract header parsing

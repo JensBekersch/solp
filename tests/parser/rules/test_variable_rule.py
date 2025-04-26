@@ -21,8 +21,7 @@ class MockTokenStream:
         self.index = 0
 
     def current(self):
-        return self.tokens[self.index] if self.index < len(
-            self.tokens) else None
+        return self.tokens[self.index] if self.index < len(self.tokens) else None
 
     def expect(self, type_, value=None):
         tok = self.current()

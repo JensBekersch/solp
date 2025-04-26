@@ -13,9 +13,17 @@
 from solp.parser.rules.function import FunctionRule
 from solp.solidity_ast.nodes import FunctionNode
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL,
-    KW_FUNCTION, KW_PAYABLE, KW_RETURNS,
-    SYM_LPAREN, SYM_RPAREN, SYM_LBRACE, SYM_RBRACE, SYM_COMMA,
+    KEYWORD,
+    IDENTIFIER,
+    SYMBOL,
+    KW_FUNCTION,
+    KW_PAYABLE,
+    KW_RETURNS,
+    SYM_LPAREN,
+    SYM_RPAREN,
+    SYM_LBRACE,
+    SYM_RBRACE,
+    SYM_COMMA,
 )
 
 
@@ -31,8 +39,7 @@ class MockTokenStream:
         self.index = 0
 
     def current(self):
-        return self.tokens[self.index] if self.index < len(
-            self.tokens) else None
+        return self.tokens[self.index] if self.index < len(self.tokens) else None
 
     def last(self):
         return self.tokens[self.index - 1]

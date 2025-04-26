@@ -18,7 +18,7 @@ include = ["solp*", "lexer*", "parser*", "solidity_ast*", "token_stream*"]
 
 [tool.black]
 line-length = 88
-target-version = ["py310"]
+target-version = ["py38"]
 
 [tool.isort]
 profile = "black"

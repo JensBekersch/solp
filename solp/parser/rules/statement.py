@@ -6,15 +6,40 @@
 # - assignment statements (e.g. `x = 1;`, `y += 2;`)
 # - expression statements (e.g. `require(x > 0);`)
 #
-from solp.solidity_ast.nodes import StatementNode, ReturnNode, CallNode, \
-    IfNode, WhileNode, ForNode
+from solp.solidity_ast.nodes import (
+    StatementNode,
+    ReturnNode,
+    CallNode,
+    IfNode,
+    WhileNode,
+    ForNode,
+)
 from solp.utils.errors import INVALID_EXPRESSION_START, EXPECTED_AFTER_DOT
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL, OPERATOR,
-    KW_RETURN, SYM_SEMICOLON, SYM_LBRACE, SYM_RBRACE, RULE_ASSIGNMENT,
-    RULE_EXPRESSION, RULE_REQUIRE, SYM_LPAREN, SYM_RPAREN, SYM_COMMA, SYM_DOT,
-    RULE_IF, RULE_ELSE, RULE_REVERT, RULE_ASSERT, RULE_EMIT, RULE_WHILE,
-    RULE_FOR, RULE_BREAK, RULE_CONTINUE
+    KEYWORD,
+    IDENTIFIER,
+    SYMBOL,
+    OPERATOR,
+    KW_RETURN,
+    SYM_SEMICOLON,
+    SYM_LBRACE,
+    SYM_RBRACE,
+    RULE_ASSIGNMENT,
+    RULE_EXPRESSION,
+    RULE_REQUIRE,
+    SYM_LPAREN,
+    SYM_RPAREN,
+    SYM_COMMA,
+    SYM_DOT,
+    RULE_IF,
+    RULE_ELSE,
+    RULE_REVERT,
+    RULE_ASSERT,
+    RULE_EMIT,
+    RULE_WHILE,
+    RULE_FOR,
+    RULE_BREAK,
+    RULE_CONTINUE,
 )
 
 
@@ -100,8 +125,7 @@ class StatementRule:
         self.tokens.expect(SYMBOL, SYM_SEMICOLON)
 
         return StatementNode(
-            RULE_EXPRESSION,
-            expr=CallNode(RULE_REQUIRE, arguments=args)
+            RULE_EXPRESSION, expr=CallNode(RULE_REQUIRE, arguments=args)
         )
 
     def _parse_assignment(self):
@@ -117,8 +141,7 @@ class StatementRule:
         right = self.parse_expression()
         self.tokens.expect(SYMBOL, SYM_SEMICOLON)
 
-        return StatementNode(RULE_ASSIGNMENT, left=left,
-                             operator=op, right=right)
+        return StatementNode(RULE_ASSIGNMENT, left=left, operator=op, right=right)
 
     def _parse_if(self):
         # arc42: 5.3.9.6 If Statement
@@ -140,8 +163,7 @@ class StatementRule:
             else_block = self.parse()
             self.tokens.expect(SYMBOL, SYM_RBRACE)
 
-        return IfNode(condition=condition, then_block=then_block,
-                      else_block=else_block)
+        return IfNode(condition=condition, then_block=then_block, else_block=else_block)
 
     def _parse_emit(self):
         # arc42: 5.3.9.8 Emit Statement
@@ -216,8 +238,7 @@ class StatementRule:
         body = self.parse()
         self.tokens.expect(SYMBOL, SYM_RBRACE)
 
-        return ForNode(init=init, condition=condition, increment=increment,
-                       body=body)
+        return ForNode(init=init, condition=condition, increment=increment, body=body)
 
     def _parse_break(self):
         # arc42: 5.3.9.11 Break & Continue
