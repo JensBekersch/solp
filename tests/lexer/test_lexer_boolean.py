@@ -5,6 +5,7 @@
 # Check if these values are recognized as KEYWORD tokens with correct value.
 
 import pytest
+
 from solp.lexer.lexer import Lexer
 
 

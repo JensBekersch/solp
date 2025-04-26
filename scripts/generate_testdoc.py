@@ -21,9 +21,11 @@ def extract_testdoc_sections(test_dir):
                         title = match.group(1).strip()
                         content_lines = []
                         i += 1
-                        while i < len(lines) and lines[i].lstrip().startswith(
-                                "#") and not re.match(r"\s*#\s*testdoc:",
-                                                      lines[i]):
+                        while (
+                            i < len(lines)
+                            and lines[i].lstrip().startswith("#")
+                            and not re.match(r"\s*#\s*testdoc:", lines[i])
+                        ):
                             content_lines.append(lines[i].lstrip("#").strip())
                             i += 1
                         testdoc_map[file].append((title, content_lines))

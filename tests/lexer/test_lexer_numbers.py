@@ -10,6 +10,7 @@
 # testdoc: Scope Limit
 # Does not test signed numbers, floats, hex, or scientific notation.
 import pytest
+
 from solp.lexer.lexer import Lexer
 
 NUMBERS = ["0", "1", "42", "999", "1234567890"]

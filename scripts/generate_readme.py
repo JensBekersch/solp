@@ -20,9 +20,11 @@ def extract_readme_sections(lib_base_dir):
                         title = match.group(1).strip()
                         content_lines = []
                         i += 1
-                        while i < len(lines) and lines[i].lstrip().startswith(
-                                "#") and not re.match(r"#\s*readme:",
-                                                      lines[i]):
+                        while (
+                            i < len(lines)
+                            and lines[i].lstrip().startswith("#")
+                            and not re.match(r"#\s*readme:", lines[i])
+                        ):
                             content_lines.append(lines[i].lstrip("#").strip())
                             i += 1
                         readme_sections.append((title, content_lines))

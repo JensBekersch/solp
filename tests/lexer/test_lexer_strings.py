@@ -12,6 +12,7 @@
 # testdoc: Scope Limit
 # Does not validate full escape sequence rules (e.g. \n, \xFF)
 import pytest
+
 from solp.lexer.lexer import Lexer
 
 CASES = [

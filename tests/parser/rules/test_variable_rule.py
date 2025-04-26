@@ -2,11 +2,12 @@
 # To verify that top-level variable declarations are parsed correctly
 # by VariableRule.
 
+from solp.lexer.token_types import IDENTIFIER, KEYWORD, SYM_SEMICOLON, SYMBOL
+
 # testdoc: Scope
 # This includes type, optional visibility, and name extraction.
 from solp.parser.rules.variable import VariableRule
 from solp.solidity_ast.nodes import VariableNode
-from solp.lexer.token_types import KEYWORD, IDENTIFIER, SYMBOL, SYM_SEMICOLON
 
 
 class MockToken:

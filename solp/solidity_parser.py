@@ -2,9 +2,8 @@
 # Solidity Parser Library – A modular Python library for lexical and structural
 # analysis of Solidity smart contracts. Designed for extensibility,
 # transparency, and full testability.
-from solp.parser.parser import Parser
-
 from solp.lexer.lexer import Lexer
+from solp.parser.parser import Parser
 
 
 def parse_contract(source_code: str):
