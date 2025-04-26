@@ -187,7 +187,6 @@ class Lexer:
                 return op
         return ""
 
-
     def _consume_string(self):
         # arc42: 5.2.13 String Literals
         # Handles double-quoted and single-quoted string literals.
@@ -195,10 +194,9 @@ class Lexer:
         assert quote_char in ('"', "'")
         self._advance()
 
-        start = self.position
         value = ""
-        while self.position < len(self.code) and self.code[
-            self.position] != quote_char:
+        while self.position < len(self.code) and self.code[self.position] != \
+                quote_char:
             if self.code[self.position] == "\\" and self._peek() == quote_char:
                 value += quote_char
                 self._advance(2)

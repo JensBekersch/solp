@@ -6,8 +6,8 @@
 # - assignment statements (e.g. `x = 1;`, `y += 2;`)
 # - expression statements (e.g. `require(x > 0);`)
 #
-from solp.solidity_ast.nodes import StatementNode, ReturnNode, CallNode, IfNode, \
-    WhileNode, ForNode
+from solp.solidity_ast.nodes import StatementNode, ReturnNode, CallNode, \
+    IfNode, WhileNode, ForNode
 from solp.utils.errors import INVALID_EXPRESSION_START, EXPECTED_AFTER_DOT
 from solp.lexer.token_types import (
     KEYWORD, IDENTIFIER, SYMBOL, OPERATOR,
