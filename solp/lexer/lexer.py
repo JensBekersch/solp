@@ -32,15 +32,16 @@
 # - position (line, column)
 # - subtype (optional: e.g. operator group)
 
+from solp.lexer.definitions.keywords import KEYWORDS
+from solp.lexer.definitions.operators import OPERATOR_GROUPS
+from solp.lexer.definitions.symbols import SYMBOLS
+
 # arc42: 8. Crosscutting Concepts – Testing Strategy
 # Every lexer function is individually tested using unit tests.
 # For example, each keyword has a dedicated test to ensure recognition.
 # Tests also document edge cases and serve as regression guards for future
 # updates to Solidity.
 from solp.lexer.token import Token
-from solp.lexer.definitions.keywords import KEYWORDS
-from solp.lexer.definitions.operators import OPERATOR_GROUPS
-from solp.lexer.definitions.symbols import SYMBOLS
 
 KEYWORDS = set(KEYWORDS)
 

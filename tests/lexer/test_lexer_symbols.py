@@ -15,8 +15,9 @@
 # This test does not validate position tracking (line/col) or Token class
 # internals.
 import pytest
-from solp.lexer.lexer import Lexer
+
 from solp.lexer.definitions.symbols import SYMBOLS
+from solp.lexer.lexer import Lexer
 
 
 def lex(code):
@@ -33,5 +34,6 @@ def get_token_type_and_value(code):
 def test_symbol_lexing_only(symbol):
     token_type, token_value = get_token_type_and_value(symbol)
     assert token_type == "SYMBOL", f"Expected SYMBOL, got {token_type}"
-    assert token_value == symbol, f"Token value mismatch: " \
-                                  f"expected {symbol}, got {token_value}"
+    assert token_value == symbol, (
+        f"Token value mismatch: " f"expected {symbol}, got {token_value}"
+    )

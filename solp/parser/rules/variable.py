@@ -5,11 +5,14 @@
 # - an optional visibility modifier (public/private/internal/external)
 # - a name (identifier)
 # - a semicolon to terminate the declaration
-from solp.solidity_ast.nodes import VariableNode
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL,
-    KW_VISIBILITY, SYM_SEMICOLON,
+    IDENTIFIER,
+    KEYWORD,
+    KW_VISIBILITY,
+    SYM_SEMICOLON,
+    SYMBOL,
 )
+from solp.solidity_ast.nodes import VariableNode
 
 
 class VariableRule:
@@ -25,8 +28,10 @@ class VariableRule:
         self.tokens.expect(KEYWORD)
 
         visibility = None
-        if self.tokens.current().type == KEYWORD and \
-                self.tokens.current().value in KW_VISIBILITY:
+        if (
+            self.tokens.current().type == KEYWORD
+            and self.tokens.current().value in KW_VISIBILITY
+        ):
             visibility = self.tokens.current().value
             self.tokens.advance()
 
@@ -34,5 +39,4 @@ class VariableRule:
         self.tokens.expect(IDENTIFIER)
         self.tokens.expect(SYMBOL, SYM_SEMICOLON)
 
-        return VariableNode(var_type=var_type, name=name,
-                            visibility=visibility)
+        return VariableNode(var_type=var_type, name=name, visibility=visibility)

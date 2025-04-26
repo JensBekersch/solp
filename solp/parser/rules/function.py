@@ -7,12 +7,23 @@
 # - Parse optional return types (via 'returns')
 # - Parse the function body using the delegated 'statements' rule
 # Output: A fully constructed FunctionNode in the AST
-from solp.solidity_ast.nodes import FunctionNode, VariableNode
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL,
-    KW_FUNCTION, KW_VISIBILITY, KW_PAYABLE, KW_RETURNS, RULE_STATEMENTS,
-    SYM_LPAREN, SYM_RPAREN, SYM_LBRACE, SYM_RBRACE, SYM_COMMA, SYM_EMPTY,
+    IDENTIFIER,
+    KEYWORD,
+    KW_FUNCTION,
+    KW_PAYABLE,
+    KW_RETURNS,
+    KW_VISIBILITY,
+    RULE_STATEMENTS,
+    SYM_COMMA,
+    SYM_EMPTY,
+    SYM_LBRACE,
+    SYM_LPAREN,
+    SYM_RBRACE,
+    SYM_RPAREN,
+    SYMBOL,
 )
+from solp.solidity_ast.nodes import FunctionNode, VariableNode
 
 
 class FunctionRule:
@@ -42,7 +53,7 @@ class FunctionRule:
             visibility=visibility,
             is_payable=is_payable,
             returns=returns,
-            body=body
+            body=body,
         )
 
     def _parse_function_header(self):

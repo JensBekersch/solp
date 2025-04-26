@@ -11,7 +11,6 @@
 from solp.parser.rules.contract import ContractRule
 from solp.solidity_ast.nodes import ContractNode
 
-
 # --- Mocks ---
 
 

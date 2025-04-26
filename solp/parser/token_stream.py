@@ -9,6 +9,7 @@
 # - Centralize matching and error reporting for expected patterns
 # - Prevent out-of-bounds access by returning None safely
 
+
 class TokenStream:
     def __init__(self, tokens):
         # arc42: 5.3.1.1 Initialization
@@ -53,8 +54,7 @@ class TokenStream:
         # Used to enforce expected grammar structure in rules.
         if self.match(type_, value):
             return
-        raise Exception(f"Expected {type_} {value or ''} "
-                        f"but got {self.current()}")
+        raise Exception(f"Expected {type_} {value or ''} " f"but got {self.current()}")
 
     def last(self):
         # arc42: 5.3.1.7 Last

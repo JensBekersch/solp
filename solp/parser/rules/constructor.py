@@ -6,12 +6,20 @@
 # - have no name or return type
 # - contain a standard statement block
 # Results in a ConstructorNode for use in ContractNode.members
-from solp.solidity_ast.nodes import ConstructorNode, VariableNode
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL,
-    KW_VISIBILITY, SYM_LPAREN, SYM_RPAREN, SYM_LBRACE, SYM_RBRACE, SYM_COMMA,
-    RULE_STATEMENTS, RULE_CONSTRUCTOR,
+    IDENTIFIER,
+    KEYWORD,
+    KW_VISIBILITY,
+    RULE_CONSTRUCTOR,
+    RULE_STATEMENTS,
+    SYM_COMMA,
+    SYM_LBRACE,
+    SYM_LPAREN,
+    SYM_RBRACE,
+    SYM_RPAREN,
+    SYMBOL,
 )
+from solp.solidity_ast.nodes import ConstructorNode, VariableNode
 
 
 class ConstructorRule:

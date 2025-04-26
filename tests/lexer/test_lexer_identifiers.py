@@ -13,11 +13,10 @@
 # testdoc: Scope Limit
 # This test does not check for reserved keywords or parser behavior.
 import pytest
+
 from solp.lexer.lexer import Lexer
 
-IDENTIFIERS = [
-    "x", "x1", "_x", "myVar", "CamelCase", "_under_score", "with123Numbers"
-]
+IDENTIFIERS = ["x", "x1", "_x", "myVar", "CamelCase", "_under_score", "with123Numbers"]
 
 
 @pytest.mark.parametrize("identifier", IDENTIFIERS)

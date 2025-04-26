@@ -16,14 +16,11 @@
 # This test intentionally avoids testing the Token class itself
 # (subtype, line, col). Those aspects are to be tested separately.
 import pytest
-from solp.lexer.lexer import Lexer
-from solp.lexer.definitions.operators import OPERATOR_GROUPS
 
-ALL_OPERATORS = [
-    (op, group)
-    for group, ops in OPERATOR_GROUPS.items()
-    for op in ops
-]
+from solp.lexer.definitions.operators import OPERATOR_GROUPS
+from solp.lexer.lexer import Lexer
+
+ALL_OPERATORS = [(op, group) for group, ops in OPERATOR_GROUPS.items() for op in ops]
 
 
 def lex(code):
@@ -32,8 +29,7 @@ def lex(code):
 
 def get_token_type_and_value(code):
     tokens = lex(code)
-    assert len(
-        tokens) == 1, f"Expected one token for input '{code}', got: {tokens}"
+    assert len(tokens) == 1, f"Expected one token for input '{code}', got: {tokens}"
     return tokens[0].type, tokens[0].value
 
 
@@ -41,6 +37,6 @@ def get_token_type_and_value(code):
 def test_operator_lexing_only(operator, group):
     token_type, token_value = get_token_type_and_value(operator)
     assert token_type == "OPERATOR", f"Expected OPERATOR, got {token_type}"
-    assert token_value == operator, f"Token value mismatch: " \
-                                    f"expected {operator}" \
-                                    f", got {token_value}"
+    assert token_value == operator, (
+        f"Token value mismatch: " f"expected {operator}" f", got {token_value}"
+    )

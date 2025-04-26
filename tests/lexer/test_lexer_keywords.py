@@ -16,8 +16,9 @@
 # Detects typographical errors or accidental keyword renaming in the keyword
 # list.
 import pytest
-from solp.lexer.lexer import Lexer
+
 from solp.lexer.definitions.keywords import KEYWORDS
+from solp.lexer.lexer import Lexer
 
 CONTRACT = "contract"
 INTERFACE = "interface"
@@ -80,14 +81,68 @@ MSG = "msg"
 TX = "tx"
 BLOCK = "block"
 
-ALL_KEYWORDS = [CONTRACT, INTERFACE, LIBRARY, FUNCTION, MODIFIER, CONSTRUCTOR,
-                IF, ELSE, WHILE, FOR, DO, RETURN, EMIT, REQUIRE, REVERT,
-                PUBLIC, PRIVATE, INTERNAL, EXTERNAL, VIEW, PURE, PAYABLE,
-                CONSTANT, STORAGE, MEMORY, CALLDATA, MAPPING, EVENT, ENUM,
-                STRUCT, IMPORT, PRAGMA, RETURNS, OVERRIDE, VIRTUAL, ASSEMBLY,
-                NEW, DELETE, BREAK, CONTINUE, UNCHECKED, TRY, CATCH, THROW,
-                ADDRESS, BOOL, STRING, BYTES, INT, UINT, FIXED, UFIXED, BYTE,
-                TRUE, FALSE, THIS, SUPER, MSG, TX, BLOCK]
+ALL_KEYWORDS = [
+    CONTRACT,
+    INTERFACE,
+    LIBRARY,
+    FUNCTION,
+    MODIFIER,
+    CONSTRUCTOR,
+    IF,
+    ELSE,
+    WHILE,
+    FOR,
+    DO,
+    RETURN,
+    EMIT,
+    REQUIRE,
+    REVERT,
+    PUBLIC,
+    PRIVATE,
+    INTERNAL,
+    EXTERNAL,
+    VIEW,
+    PURE,
+    PAYABLE,
+    CONSTANT,
+    STORAGE,
+    MEMORY,
+    CALLDATA,
+    MAPPING,
+    EVENT,
+    ENUM,
+    STRUCT,
+    IMPORT,
+    PRAGMA,
+    RETURNS,
+    OVERRIDE,
+    VIRTUAL,
+    ASSEMBLY,
+    NEW,
+    DELETE,
+    BREAK,
+    CONTINUE,
+    UNCHECKED,
+    TRY,
+    CATCH,
+    THROW,
+    ADDRESS,
+    BOOL,
+    STRING,
+    BYTES,
+    INT,
+    UINT,
+    FIXED,
+    UFIXED,
+    BYTE,
+    TRUE,
+    FALSE,
+    THIS,
+    SUPER,
+    MSG,
+    TX,
+    BLOCK,
+]
 
 
 def lex(code):
@@ -108,6 +163,5 @@ def test_keyword_count():
 def test_keyword_token_recognition(keyword):
     token = get_single_token_value(keyword)
 
-    assert token.type == "KEYWORD", \
-        f"{keyword} should be recognized as KEYWORD"
+    assert token.type == "KEYWORD", f"{keyword} should be recognized as KEYWORD"
     assert token.value == keyword

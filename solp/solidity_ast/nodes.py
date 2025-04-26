@@ -19,8 +19,15 @@ class VariableNode:
 
 
 class FunctionNode:
-    def __init__(self, name, visibility=None, is_payable=False,
-                 parameters=None, returns=None, body=None):
+    def __init__(
+        self,
+        name,
+        visibility=None,
+        is_payable=False,
+        parameters=None,
+        returns=None,
+        body=None,
+    ):
         self.type = "Function"
         self.name = name
         self.visibility = visibility

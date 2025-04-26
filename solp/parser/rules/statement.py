@@ -6,41 +6,41 @@
 # - assignment statements (e.g. `x = 1;`, `y += 2;`)
 # - expression statements (e.g. `require(x > 0);`)
 #
-from solp.solidity_ast.nodes import (
-    StatementNode,
-    ReturnNode,
-    CallNode,
-    IfNode,
-    WhileNode,
-    ForNode,
-)
-from solp.utils.errors import INVALID_EXPRESSION_START, EXPECTED_AFTER_DOT
 from solp.lexer.token_types import (
-    KEYWORD,
     IDENTIFIER,
-    SYMBOL,
-    OPERATOR,
+    KEYWORD,
     KW_RETURN,
-    SYM_SEMICOLON,
-    SYM_LBRACE,
-    SYM_RBRACE,
-    RULE_ASSIGNMENT,
-    RULE_EXPRESSION,
-    RULE_REQUIRE,
-    SYM_LPAREN,
-    SYM_RPAREN,
-    SYM_COMMA,
-    SYM_DOT,
-    RULE_IF,
-    RULE_ELSE,
-    RULE_REVERT,
+    OPERATOR,
     RULE_ASSERT,
-    RULE_EMIT,
-    RULE_WHILE,
-    RULE_FOR,
+    RULE_ASSIGNMENT,
     RULE_BREAK,
     RULE_CONTINUE,
+    RULE_ELSE,
+    RULE_EMIT,
+    RULE_EXPRESSION,
+    RULE_FOR,
+    RULE_IF,
+    RULE_REQUIRE,
+    RULE_REVERT,
+    RULE_WHILE,
+    SYM_COMMA,
+    SYM_DOT,
+    SYM_LBRACE,
+    SYM_LPAREN,
+    SYM_RBRACE,
+    SYM_RPAREN,
+    SYM_SEMICOLON,
+    SYMBOL,
 )
+from solp.solidity_ast.nodes import (
+    CallNode,
+    ForNode,
+    IfNode,
+    ReturnNode,
+    StatementNode,
+    WhileNode,
+)
+from solp.utils.errors import EXPECTED_AFTER_DOT, INVALID_EXPRESSION_START
 
 
 class StatementRule:

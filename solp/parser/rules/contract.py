@@ -5,12 +5,20 @@
 # - delegation of contract members (e.g. functions, variables) to other rules
 # The contract body is iterated token by token and parsed modularly via
 # the dispatcher.
-from solp.solidity_ast.nodes import ContractNode
 from solp.lexer.token_types import (
-    KEYWORD, IDENTIFIER, SYMBOL, KW_CONTRACT,
-    KW_FUNCTION, KW_TYPES, SYM_LBRACE,
-    SYM_RBRACE, RULE_VARIABLE, RULE_FUNCTION, KW_CONSTRUCTOR
+    IDENTIFIER,
+    KEYWORD,
+    KW_CONSTRUCTOR,
+    KW_CONTRACT,
+    KW_FUNCTION,
+    KW_TYPES,
+    RULE_FUNCTION,
+    RULE_VARIABLE,
+    SYM_LBRACE,
+    SYM_RBRACE,
+    SYMBOL,
 )
+from solp.solidity_ast.nodes import ContractNode
 
 
 class ContractRule:
@@ -43,8 +51,7 @@ class ContractRule:
         members = []
         while True:
             if self.tokens.current() is None:
-                raise Exception(
-                    "Unexpected EOF while parsing contract members")
+                raise Exception("Unexpected EOF while parsing contract members")
 
             if self.tokens.match(SYMBOL, SYM_RBRACE):
                 break
